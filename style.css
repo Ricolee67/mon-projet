@@ -1,0 +1,258 @@
+/* Général */
+/* On commence par définir des polices d’écriture pour notre site.
+
+On effectue également un reset CSS des marges intérieures et extérieures de notre élément body
+ afin d’avoir le même rendu sur tous les navigateurs (certains ajoutent automatiquement une petite marge).*/
+ /*Ensuite, on centre nos titres h1 et on les met en forme.*/
+
+body{
+	font-family: 'century gothic', calibri, sans-serif;
+	font-size: 13px;
+	margin: 0px;
+	padding: 0px;
+}
+/*Ensuite, on centre nos titres h1 et on les met en forme.*/
+h1{
+	font-size: 40px;
+	font-weight: normal;
+	text-align: center;
+}
+
+/*On effectue également une mise en forme minimale du header et du footer de notre site.*/
+header{
+	height: 100px;
+}
+
+footer{
+	height: 80px;
+	padding-top: 30px;
+	text-align: center;
+	background-color: #C5C5C5;
+	border-top: 2px solid #AAA;
+}
+
+/*On commence déjà par mettre les éléments de notre menu en ligne et par enlever les puces devant les éléments de liste.*/
+nav li{
+	list-style-type: none;
+	float: left;
+}
+
+/*On va ensuite également effectuer un reset des marges de notre élément de liste ul.*/
+nav ul{
+	margin: 0px;
+	padding: 0px;
+}
+
+/*On étend notre élément nav et on lui donne une couleur de fond */
+nav{
+	width: 100%;
+	background-color: #424558;
+}
+
+/*On commence par enlever le trait de soulignement avec la propriété text-decoration.
+
+Ensuite, on change la couleur des textes pour qu’ils soient bien lisibles,
+ ainsi que la taille et on met l’écriture en majuscules avec la propriété text-transform.*/
+ /*Finalement, on change le type de nos éléments a en inline-block afin de leur appliquer un gros padding.
+  Cela va avoir pour effet d’aérer notre menu tout en gardant tout l’espace autour du texte cliquable.*/
+
+nav a{
+	display: inline-block;
+	text-decoration: none;
+	padding: 20px 30px;
+	color: #FFF;
+	text-transform: uppercase;
+	font-size: 15px;
+}
+
+/*Ensuite, on veut centrer notre menu dans notre page. Pour cela, 
+nous allons devoir appliquer un display : table et un margin : 0 auto au div intermédiaire que nous avions créé.*/
+.table{
+	display: table;
+	margin: 0 auto;
+}
+
+/*Nous allons simplement appliquer une bordure en haut des éléments de menu ainsi qu’une couleur de fond
+ en semi-transparence lors du survol de l’élément en question*/
+.menu-ind:hover{
+	border-top: 5px solid #4c8;
+	background-color: rgba(64, 200, 130,0.15);
+}
+
+.menu-exp:hover{
+	border-top: 5px solid #f1dc4f;
+	background-color: rgba(241, 211, 79, 0.15);
+}
+
+.menu-hob:hover{
+   border-top: 5px solid #0070bb;
+   background-color: rgba(000, 112, 192, 0.15);
+}
+
+.menu-con:hover{
+	border-top: 5px solid #e44d26;
+	background-color: rgba(228, 77, 38, 0.15);
+}
+
+/*Comme la bordure déplace nos éléments de menu de sa hauteur lors du survol, 
+on ajoute une marge intérieure spécifique lors du survol des éléments de menu pour contrebalancer l’effet de la bordure.*/
+nav li:hover a{
+	padding: 15px 30px 20px 30px;
+}
+
+/* on definit la largeur de nos sections, ainsi que la hauteur minimale et les marges intérieures et extérieures.*/
+section{
+	widht: 100%;
+	min-height: 300px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+
+/* on rajoute es marges gauche et droite à nos div class="sec" afin de centrer un peu le contenu des sections.*/
+/*On précise ici des valeurs en pourcentage afin de simplifier le passage en responsive par la suite.*/
+.sec{
+	margin: 0px 10%;
+}
+
+
+/*Nous allons déjà faire flotter tous nos div de sous-section*/
+/*Nous avons séparé nos sections en deux avec div class="left" et div class="right".
+Dans ce cas, on veut que la sous section gauche occupe 30% de l’espace disponible et la section droite les 70% restants.*/
+.left{
+	float: left;
+	width: 30%;
+}
+
+
+.right{
+	float: right;
+	width: 70%;
+}
+
+
+/*Ici, la section compétence est un peu particulière puisqu’on la découpe en deux puis à nouveau en deux.
+
+Dans ce cas, on veut que chacune des quatre parties de section occupe 25% de l’espace disponible.
+
+On applique donc un width : 50% aux div qui coupent la section en deux et à nouveau 50% pour les div qui recoupent en deux.*/
+.cleft, .cright, .sousleft, .sousright{
+	width: 50%;
+	float: left;
+}
+
+
+/*Arrivé ici, on se heurte à un problème : nos div de section contiennent des enfants flottants.
+ Or, en CSS, tout parent non flottant qui possède des enfants flottants va collapser.
+
+Pour empêcher ce comportement, nous allons utiliser le clearfix CSS suivant sur le div parent en question*/
+.sec::after, .exp::after{
+	content: "";
+	display: table;
+	clear: both;
+}
+
+
+#presentation{
+	border-top: 5px solid #4c8;
+	background-color: rgba(64, 200, 130,0.15);
+}
+
+#parcours{
+	border-top: 5px solid #f1dc4f;
+	background-color: rgba(241, 211, 79, 0.15);
+}
+
+
+#competences{
+	border-top: 5px solid #0070bb;
+   background-color: rgba(000, 112, 192, 0.15);
+}
+
+
+.orange{
+	border-top: 5px solid #e47d26;
+	background-color: rgba(228, 117, 38, 0.15);
+	margin-bottom: 0px;
+}
+
+.rose{
+	border-top: 5px solid #e44d96;
+	background-color: rgba(228, 77, 128 0.15);
+	margin-bottom: 0px;
+}
+
+.leftexp{
+	width: 45%;
+	float: left;
+}
+
+.rightexp{
+	width: 50%;
+	float: right;
+	margin-left: 5%;
+}
+
+.leftexp img{
+	width: 100%;
+	min-width: 400px;
+}
+
+.leftexp{
+	width: 45%;
+	float: left;
+}
+
+.rightexp{
+	width: 50%;
+	float: left;
+	margin-left: 5%;
+}
+
+.leftexp img{
+	width: 100%;
+	min-width: 400px;
+}
+
+.vert{
+	border-top: 5px solid #5f6;
+	background-color: rgba(70, 240, 82, 0.15);
+}
+
+.bleu{
+	border-top: 5px solid #29c;
+	background-color: rgba(30, 152, 212, 0.15);
+}
+
+.jaune{
+	border-top: 5px solid #f3e241;
+	background-color: rgba(240, 225, 69, 0.15);
+}
+
+.rouge{
+	border-top: 5px solid #e44d26;
+	background-color: rgba(228, 77, 38, 0.15);
+}
+
+.rouge p{
+	text-align: center;
+}
+
+/*Concernant l’aspect responsive de notre site, nous allons faire très simple pour le moment en nous contenant de réduire les dimensions
+ et écarts entre nos différents éléments afin que le site s’affiche également bien sur mobile.*/
+@media screen and (max-width: 780px){
+	header{
+		height: 50px;
+	}
+	h1{
+		font-size: 28px;
+		margin: 20px 0px 0px 0px;
+	}
+	nav li a{
+		font-size: 12px;
+		padding: 10px;
+	}
+	nav li:hover a{
+		padding: 5px 10px 10px 10px;
+	}
+}
+
